@@ -66,6 +66,14 @@ nav a.on{background:var(--ink);color:var(--bg)}
  nav.open{display:flex}nav a{padding:14px 16px;font-size:17px}
 }
 
+.subnav{display:none}
+@media(max-width:1180px){
+ .subnav{display:flex;gap:6px;overflow-x:auto;padding:0 max(3vw,14px) 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+ .subnav::-webkit-scrollbar{display:none}
+ .subnav a{flex:none;scroll-snap-align:start;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;color:var(--mute);background:var(--card);border:1px solid var(--line);white-space:nowrap}
+ .subnav a.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+ html{scroll-padding-top:120px}
+}
 .page{display:none}
 .page.on{display:block;animation:in .55s ease both}
 @keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -306,6 +314,7 @@ header{-webkit-backdrop-filter:blur(10px)}
   <a class="btn pri" href="https://wa.me/201092672983" target="_blank" rel="noopener" data-t="book"></a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
  </div>
+ <div class="subnav" id="subnav"><a href="#home" data-p="home" data-t="n_home"></a><a href="#menu" data-p="menu" data-t="n_menu"></a><a href="#small-events" data-p="small-events" data-t="n_small"></a><a href="#extras" data-p="extras" data-t="n_extras"></a><a href="#our-work" data-p="our-work" data-t="n_work"></a><a href="#policy" data-p="policy" data-t="n_policy"></a><a href="#contact" data-p="contact" data-t="n_contact"></a></div>
 </header>
 
 <main>
@@ -669,7 +678,8 @@ const pages=['home','menu','small-events','extras','our-work','policy','contact'
 const nav=$('#nav'),burger=$('#burger');
 function route(){const h=location.hash.slice(1);if(h=='reviews'){location.hash='home';return}const p=pages.includes(h)?h:'home';
  pages.forEach(x=>document.getElementById('p-'+x).classList.toggle('on',x==p));
- $$('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.p==p));
+ $$('#nav a,#subnav a').forEach(a=>a.classList.toggle('on',a.dataset.p==p));
+ {const cur=$('#subnav a.on');if(cur){const sn=$('#subnav');sn.scrollLeft+=cur.getBoundingClientRect().left-sn.getBoundingClientRect().left-(sn.clientWidth-cur.offsetWidth)/2}}
  $$('video').forEach(v=>v.pause());
  nav.classList.remove('open');burger.setAttribute('aria-expanded','false');window.scrollTo(0,0)}
 addEventListener('hashchange',route);
