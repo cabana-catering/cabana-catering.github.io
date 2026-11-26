@@ -76,14 +76,14 @@ nav a.on{background:var(--ink);color:var(--bg)}
 .lang{flex:none;min-width:46px;height:44px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:700 15px Poppins,Tajawal,sans-serif;cursor:pointer;padding:0 12px}
 .burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;flex:none}
 .burger span{display:block;width:20px;height:2px;background:currentColor;margin:4px auto}
-@media(max-width:1180px){
+@media(max-width:1320px){
  .burger{display:block}.bar>.btn{display:none}.lang{margin-inline-start:auto}
  nav{display:none;position:absolute;inset:100% 0 auto 0;background:var(--bg);flex-direction:column;padding:12px 16px 20px;border-bottom:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.12)}
  nav.open{display:flex}nav a{padding:14px 16px;font-size:17px}
 }
 
 .subnav{display:none}
-@media(max-width:1180px){
+@media(max-width:1320px){
  .subnav{display:flex;gap:6px;overflow-x:auto;padding:0 max(3vw,14px) 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
  .subnav::-webkit-scrollbar{display:none}
  .subnav a{flex:none;scroll-snap-align:start;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;color:var(--mute);background:var(--card);border:1px solid var(--line);white-space:nowrap}
@@ -284,7 +284,7 @@ footer small{display:block;max-width:1240px;margin:26px auto 0;padding-top:18px;
 /* responsive polish */
 header{-webkit-backdrop-filter:blur(10px)}
 .mnav-cta{display:none}nav a.mnav-cta{color:#fff;justify-content:center;background:var(--terra)}
-@media(max-width:1180px){.mnav-cta{display:flex;margin-top:8px}}
+@media(max-width:1320px){.mnav-cta{display:flex;margin-top:8px}}
 @media(max-width:600px){
  body{font-size:16px}
  .band{padding:32px 16px}
@@ -320,6 +320,7 @@ header{-webkit-backdrop-filter:blur(10px)}
    <a href="#home" data-p="home" data-t="n_home"></a>
    <a href="#menu" data-p="menu" data-t="n_menu"></a>
    <a href="#small-events" data-p="small-events" data-t="n_small"></a>
+   <a href="#by-piece" data-p="by-piece" data-t="n_piece"></a>
    <a href="#extras" data-p="extras" data-t="n_extras"></a>
    <a href="#our-work" data-p="our-work" data-t="n_work"></a>
    <a href="#policy" data-p="policy" data-t="n_policy"></a>
@@ -330,7 +331,7 @@ header{-webkit-backdrop-filter:blur(10px)}
   <a class="btn pri" href="https://wa.me/201092672983" target="_blank" rel="noopener" data-t="book"></a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
  </div>
- <div class="subnav" id="subnav"><a href="#home" data-p="home" data-t="n_home"></a><a href="#menu" data-p="menu" data-t="n_menu"></a><a href="#small-events" data-p="small-events" data-t="n_small"></a><a href="#extras" data-p="extras" data-t="n_extras"></a><a href="#our-work" data-p="our-work" data-t="n_work"></a><a href="#policy" data-p="policy" data-t="n_policy"></a><a href="#contact" data-p="contact" data-t="n_contact"></a></div>
+ <div class="subnav" id="subnav"><a href="#home" data-p="home" data-t="n_home"></a><a href="#menu" data-p="menu" data-t="n_menu"></a><a href="#small-events" data-p="small-events" data-t="n_small"></a><a href="#by-piece" data-p="by-piece" data-t="n_piece"></a><a href="#extras" data-p="extras" data-t="n_extras"></a><a href="#our-work" data-p="our-work" data-t="n_work"></a><a href="#policy" data-p="policy" data-t="n_policy"></a><a href="#contact" data-p="contact" data-t="n_contact"></a></div>
 </header>
 
 <main>
@@ -424,6 +425,15 @@ header{-webkit-backdrop-filter:blur(10px)}
  </div></div>
 </section>
 
+<!-- BY THE PIECE -->
+<section class="page" id="p-by-piece">
+ <div class="band"><div class="wrap">
+  <div class="head"><span class="lat eb">BY THE PIECE &amp; KILO</span><h2 data-t="bp_h"></h2><p data-t="bp_p"></p></div>
+  <div id="pieceList"></div>
+  <p class="legend" data-t="bp_note"></p>
+ </div></div>
+</section>
+
 <!-- EXTRAS -->
 <section class="page" id="p-extras">
  <div class="band"><div class="wrap">
@@ -512,7 +522,7 @@ const WA='https://wa.me/201092672983';
 
 /* ---------- static text ---------- */
 const T={
-ar:{n_home:'الرئيسية',n_menu:'المنيو',n_small:'الأعداد الصغيرة',n_extras:'الحلويات والمشروبات',n_work:'أعمالنا',n_policy:'سياسة الحجز والدفع',n_contact:'تواصل معنا',book:'احجز على واتساب',langBtn:'EN',
+ar:{n_home:'الرئيسية',n_menu:'المنيو',n_small:'الأعداد الصغيرة',n_extras:'الحلويات والمشروبات',n_piece:'بالقطعة والكيلو',bp_h:'أصناف بالقطعة والكيلو',bp_p:'اطلب الأصناف اللي بتحبها بالعدد اللي محتاجه، بالقطعة أو بالكيلو، وكوّن صينيتك على مزاجك.',bp_note:'الأسعار بالجنيه المصري وغير شاملة السيت أب.',perPiece:'القطعة',perKilo:'الكيلو',bp_order:'اطلب على واتساب',bp_ask:g=>`مرحبًا كبانا، حابب أطلب أصناف بالقطعة/الكيلو من قسم ${g}:`,n_work:'أعمالنا',n_policy:'سياسة الحجز والدفع',n_contact:'تواصل معنا',book:'احجز على واتساب',langBtn:'EN',
 h_title:'كل مناسبة <em>لها طعم مختلف.</em>',h_p:'من التجمعات العائلية الصغيرة لحد الأفراح وفعاليات الشركات، <br>كبانا بتجهّز لك ضيافة على ذوقك بتفاصيل تفضل في الذاكرة.',h_b1:'استكشف المنيو',h_b2:'صمّم منيو مناسبتك',
 a_h:'ضيافة على ذوقك، <br>من أول فكرة لآخر تفصيلة.',a_p1:'كبانا كاترينج آند سيرفيسز شركة كاترينج في القاهرة الجديدة والتجمع، بتقدّم خدمات ضيافة متكاملة لكل المناسبات، من حفلات الزفاف وفعاليات الشركات لأعياد الميلاد والتجمعات الخاصة.',a_p2:'اختار من باقاتنا الجاهزة: فينجر فود، أوبن بوفيه، منيو غداء أو بوكسات المناسبات، أو نعملك منيو مخصوص حسب الأصناف والعدد والميزانية.',st1:'باقة جاهزة',st2:'أفراد كبداية',st3:'أركان ضيافة',
 s_h:'خدماتنا',s_p:'مهما كانت مناسبتك، عندنا الضيافة اللي تليق بيها.',c_h:'نسّق مناسبتك على طريقتك',c_p:'أضف لمناسبتك أركان ضيافة مميزة تكمّل الشكل والطعم.',
@@ -526,11 +536,11 @@ w_h:'من شغل كبانا',w_p:'لقطات حقيقية من مناسبات ن
 p_h:'سياسة الحجز والدفع والإلغاء',p_p:'عشان كل حاجة تبقى واضحة من الأول.',
 ct_h:'خلّينا نرتّبها سوا.',ct_p:'كلّمنا أو ابعت تفاصيل مناسبتك على واتساب، ونرد عليك بعرض متفصّل على مناسبتك.',l_wa:'واتساب',l_call:'اتصل بنا',l_mail:'البريد الإلكتروني',l_addr:'العنوان',l_hours:'مواعيد العمل',hours:'يوميًا من 9 صباحًا حتى 12 منتصف الليل',addr:'831 المنطقة الصناعية (منطقة الألف مصنع)، التجمع الثالث، القاهرة الجديدة',l_follow:'تابعنا',l_follow2:'على السوشيال ميديا',
 f_h:'صمّم منيو مناسبتك',f_name:'الاسم',f_phone:'رقم الموبايل',f_type:'نوع المناسبة',f_guests:'عدد الضيوف',f_date:'تاريخ المناسبة',f_pkg:'الباقة المفضّلة',f_place:'مكان المناسبة',f_notes:'تفاصيل إضافية أو أصناف بتفضّلها',f_send:'ابعت التفاصيل على واتساب',
-types:['فرح / خطوبة','فعالية شركة','عيد ميلاد','تجمع خاص','أخرى'],undecided:'لسه مش محدد / منيو مخصوص',smallPkg:'باقة الأعداد الصغيرة (10–30 فرد)',
+types:['فرح / خطوبة','فعالية شركة','عيد ميلاد','تجمع خاص','أخرى'],undecided:'لسه مش محدد / منيو مخصوص',smallPkg:'باقة الأعداد الصغيرة (10–30 فرد)',pieceOpt:'أصناف بالقطعة والكيلو',
 tag:'طعام يجمعنا. تفاصيل تفضل في الذاكرة.',copy:'© كبانا كاترينج آند سيرفيسز',
 egp:'جنيه',pp:'جنيه / للفرد',perBox:'جنيه / للبوكس',items:'صنف',noSetup:'غير شامل السيت أب',newNote:'<b>الأصناف بالخط العريض</b> هي الإضافات عن الباقة اللي قبلها.',order:'اطلب الباقة دي على واتساب',guests:'فرد',pcs:n=>n+' قطعة من كل صنف',ask:(n,p)=>`مرحبًا كبانا، حابب أستفسر عن ${n} (${p} جنيه)`,
 waIntro:'مرحبًا كبانا، حابب أحجز/أستفسر عن مناسبة:',waL:['الاسم','الموبايل','نوع المناسبة','عدد الضيوف','التاريخ','الباقة','المكان','تفاصيل'],rateMsg:(s,n,t)=>`تقييمي لكبانا: ${'★'.repeat(s)}${'☆'.repeat(5-s)}\nالاسم: ${n}\n${t}`},
-en:{n_home:'Home',n_menu:'Menu',n_small:'Small Gatherings',n_extras:'Desserts & Drinks',n_work:'Our Work',n_policy:'Booking Policy',n_contact:'Contact Us',book:'Book on WhatsApp',langBtn:'ع',
+en:{n_home:'Home',n_menu:'Menu',n_small:'Small Gatherings',n_extras:'Desserts & Drinks',n_piece:'By the Piece & Kilo',bp_h:'By the piece & kilo',bp_p:'Order the items you love in the quantity you need, by the piece or by the kilo, and build your own platter.',bp_note:'Prices in Egyptian pounds, setup not included.',perPiece:'per piece',perKilo:'per kilo',bp_order:'Order on WhatsApp',bp_ask:g=>`Hello Cabana, I'd like to order ${g} items by the piece / kilo:`,n_work:'Our Work',n_policy:'Booking Policy',n_contact:'Contact Us',book:'Book on WhatsApp',langBtn:'ع',
 h_title:'Every occasion <em>has its own taste.</em>',h_p:'From intimate family gatherings to weddings and corporate events, <br>Cabana prepares hospitality to your taste, with details that stay in memory.',h_b1:'Explore the menu',h_b2:'Design your menu',
 a_h:'Hospitality your way, <br>from the first idea to the last detail.',a_p1:'Cabana Catering & Services is a catering company in New Cairo offering complete catering for every occasion, from weddings and corporate events to birthdays and private gatherings.',a_p2:'Choose one of our ready packages: finger food, open buffet, lunch set menus or event boxes, or let us build a custom menu around your items, guest count and budget.',st1:'ready packages',st2:'guests to start',st3:'hospitality corners',
 s_h:'Our services',s_p:'Whatever the event, we have the hospitality to match it.',c_h:'Set up your way',c_p:'Add signature stations that complete the look and the taste of your event.',
@@ -544,7 +554,7 @@ w_h:'Cabana at work',w_p:'Real moments from events we catered: the setup, the fo
 p_h:'Booking, payment & cancellation policy',p_p:'So everything is clear from the start.',
 ct_h:"Let's plan it together.",ct_p:'Call us or send your event details on WhatsApp, and we will reply with an offer tailored to your occasion.',l_wa:'WhatsApp',l_call:'Call us',l_mail:'Email',l_addr:'Address',l_hours:'Opening hours',hours:'Daily, 9 AM to 12 midnight',addr:'831 Industrial Area (Alf Masnaa), 3rd Settlement, New Cairo',l_follow:'Follow us',l_follow2:'on social media',
 f_h:'Design your event menu',f_name:'Name',f_phone:'Mobile number',f_type:'Occasion',f_guests:'Number of guests',f_date:'Event date',f_pkg:'Preferred package',f_place:'Venue',f_notes:'Extra details or preferred items',f_send:'Send details on WhatsApp',
-types:['Wedding / engagement','Corporate event','Birthday','Private gathering','Other'],undecided:'Not decided yet / custom menu',smallPkg:'Small gatherings package (10–30 guests)',
+types:['Wedding / engagement','Corporate event','Birthday','Private gathering','Other'],undecided:'Not decided yet / custom menu',smallPkg:'Small gatherings package (10–30 guests)',pieceOpt:'Items by the piece & kilo',
 tag:'Food that brings us together. Details that stay in memory.',copy:'© Cabana Catering & Services',
 egp:'EGP',pp:'EGP / person',perBox:'EGP / box',items:'items',noSetup:'Setup not included',newNote:'<b>Items in bold</b> are additions to the previous package.',order:'Order this package on WhatsApp',guests:'guests',pcs:n=>n+' pieces of each item',ask:(n,p)=>`Hello Cabana, I'd like to ask about ${n} (EGP ${p})`,
 waIntro:'Hello Cabana, I would like to book / ask about an event:',waL:['Name','Mobile','Occasion','Guests','Date','Package','Venue','Details'],rateMsg:(s,n,t)=>`My Cabana rating: ${'★'.repeat(s)}${'☆'.repeat(5-s)}\nName: ${n}\n${t}`}};
@@ -594,6 +604,12 @@ const EXTRAS=[
   {t:['العصائر الفريش','Fresh Juices'],items:['مانجا|Mango','برتقال|Orange','ليمون نعناع|Lemon Mint','جوافة|Guava'],price:[60,['للفرد','per person']]},
   {t:['مشروبات الترحيب','Welcome Drinks'],items:['مانجا|Mango','برتقال|Orange','كوكتيل|Cocktail'],price:[25,['للفرد','per person']]}]},
  {img:'salad-bowl',t:['سلطات في كب أو بولة','Salad Cups & Bowls'],sub:['اختار أي سلطة ككب فردي أو بولة كبيرة.','Choose any salad as an individual cup or a large bowl.'],items:['كول سلو|Coleslaw','تبولة|Tabbouleh','فتوش|Fattoush','سلطة سيزر|Caesar Salad','طحينة|Tahini','بابا غنوج|Baba Ghanoush','سلطة بنجر|Beetroot Salad','سلطة زبادي|Yogurt Salad','سلطة بطاطس|Potato Salad'],prices:[[20,['كب السلطة','salad cup']],[750,['بولة السلطة، تكفي حتى 50 فرد','salad bowl, serves up to 50']]]}
+];
+const PIECES=[
+ {img:'pyr-burgers',t:['اللحوم','Beef'],p:[40,650],items:['ميني برجر|Mini Burger','ميني كفتة|Mini Kofta','ميني شاورما لحمة|Mini Beef Shawarma','ميني حواوشي|Mini Hawawshi','سمبوسك بيف|Beef Sambousek','ميني باتيه|Mini Pâté']},
+ {img:'hot-chicken',t:['الفراخ والديك الرومي','Chicken & Turkey'],p:[40,650],items:['ميني استربس|Mini Chicken Strips','ميني شاورما فراخ|Mini Chicken Shawarma','ميني تشكن جريل|Mini Grilled Chicken','سمبوسك سموك تركي|Smoked Turkey Sambousek']},
+ {img:'canapes-hq',t:['السي فود','Seafood'],p:[40,650],items:['سالمون كانابيه|Salmon Canapés','كنافة شريمب|Shrimp Kunafa','شريمب ستيكس|Shrimp Sticks','ميني كراب ساندوتش|Mini Crab Sandwich','ميني تونة|Mini Tuna']},
+ {img:'office-pretzels',t:['الجبن','Cheese'],p:[35,550],items:['ميكس تشيز كانابيه|Mixed Cheese Canapés','كرواسون ميكس تشيز|Mixed Cheese Croissant','ميني بيتزا|Mini Pizza']}
 ];
 const VIDEOS=[['work-3','poster-3',['تشكيلة فينجر فود في مناسبة خاصة','A finger-food spread at a private event']],['work-1','poster-1',['سيت أب فينجر فود في حديقة','Garden finger-food setup']],['work-2','poster-2',['جولة في بوفيه مناسبة ليلية','A tour of an evening event buffet']]];
 const PHOTOS=['pyr-burgers','pyr-wide','night-garden','sliders-fruit','courtyard','off2-ltable','juice-cheesecake','towers','garden-burgers','off3-wide','pyr-table','off2-front','garden-lawn','off3-close','night-spread','off2-long','garden-pizza','office-fruit','real-1','off2-room','office-1','real-3','off2-two','office-room','real-5','office-pretzels','real-6','real-4','real-7','real-8'];
@@ -669,12 +685,13 @@ function render(){
  $('#smallItems').innerHTML=li(SMALL);
  $('#tiers').innerHTML=[10,20,30].map((n,k)=>`<div class="card tier${k==1?' mid':''}"><span class="n">${n}</span><span>${t('guests')}</span><p>${t('pcs')(n)}</p><div class="price">${f(n*300)} <small>${t('egp')}</small></div></div>`).join('');
  $('#extrasList').innerHTML=EXTRAS.map(e=>`<article class="card extra">${img(e.img,e.t[1])}<div class="b">${i?'':`<span class="lat">${e.t[1].toUpperCase()}</span>`}<h2 style="font-size:clamp(24px,3vw,32px)">${e.t[i]}</h2>${e.sub?`<p style="color:var(--mute)">${e.sub[i]}</p>`:''}${e.cols?`<div class="xcols">${e.cols.map(c=>`<div class="xcol"><div class="grp" style="margin:0"><h4>${c.t[i]}</h4><ul>${li(c.items)}</ul></div><div class="ptag"><b>${pr(c.price[0])}</b><span>${c.price[1][i]}</span></div></div>`).join('')}</div>`:`<div class="grp" style="margin:0"><ul style="grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));column-gap:24px">${li(e.items)}</ul></div><div class="prices">${e.prices.map(p=>`<div class="ptag"><b>${pr(p[0])}</b><span>${p[1][i]}</span></div>`).join('')}</div>`}</div></article>`).join('');
+ $('#pieceList').innerHTML=PIECES.map(e=>`<article class="card extra">${img(e.img,e.t[1])}<div class="b">${i?'':`<span class="lat">${e.t[1].toUpperCase()}</span>`}<h2 style="font-size:clamp(24px,3vw,32px)">${e.t[i]}</h2><div class="grp" style="margin:0"><ul style="grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));column-gap:24px">${li(e.items)}</ul></div><div class="prices"><div class="ptag"><b>${pr(e.p[0])}</b><span>${t('perPiece')}</span></div><div class="ptag"><b>${pr(e.p[1])}</b><span>${t('perKilo')}</span></div></div><div><a class="btn pri" href="${WA}?text=${encodeURIComponent(t('bp_ask')(e.t[i]))}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>${t('bp_order')}</a></div></div></article>`).join('');
  $('#policyList').innerHTML=POLICY.map(p=>`<div class="card"><span class="ic"><svg viewBox="0 0 24 24">${IC[p[0]]}</svg></span><div><h3>${p[1][i]}</h3><p>${p[2][i]}</p></div></div>`).join('');
  $('#vids').innerHTML=VIDEOS.map(v=>`<figure><video src="vid/${v[0]}.mp4" poster="img/${v[1]}.jpg" controls playsinline preload="none"></video><figcaption>${v[2][i]}</figcaption></figure>`).join('');
  $('#photos').innerHTML=PHOTOS.map(p=>`<button type="button" aria-label="${t('w_ph')}">${img(p,lang=='ar'?'من أعمال كبانا كاترينج':'Cabana Catering event')}</button>`).join('');
  $('#revList').hidden=!REVIEWS.length;$('#revList').innerHTML=REVIEWS.length?REVIEWS.map(r=>`<figure class="card rev" style="margin:0"><div class="stars">${[1,2,3,4,5].map(k=>star(k<=r.stars)).join('')}</div><blockquote style="margin:0">${r[lang]||r.ar}</blockquote><figcaption class="who">${r.name}<small>${r.event?r.event[i]:''}</small></figcaption></figure>`).join(''):'';
  $('#f-type').innerHTML=t('types').map(x=>`<option>${x}</option>`).join('');
- $('#f-pkg').innerHTML=`<option>${t('undecided')}</option>`+CATS.map(c=>`<optgroup label="${c.t[i]}">${c.pk.map(p=>`<option>${p[i]} — ${pr(p[2])}</option>`).join('')}</optgroup>`).join('')+`<option>${t('smallPkg')}</option>`;
+ $('#f-pkg').innerHTML=`<option>${t('undecided')}</option>`+CATS.map(c=>`<optgroup label="${c.t[i]}">${c.pk.map(p=>`<option>${p[i]} — ${pr(p[2])}</option>`).join('')}</optgroup>`).join('')+`<option>${t('smallPkg')}</option><option>${t('pieceOpt')}</option>`;
  $$('[data-soc]').forEach(el=>el.innerHTML=SOC.map(s=>`<a href="${s[0]}" target="_blank" rel="noopener" aria-label="${s[2]}"><svg viewBox="0 0 24 24"><use href="#${s[1]}"/></svg></a>`).join(''));
  drawMenu();drawPick();rateLink();buildWa();
 }
@@ -690,7 +707,7 @@ dots.forEach((d,k)=>d.addEventListener('click',()=>{show(k);play()}));
 sl[0].classList.add('on');dots[0].classList.add('on');play();
 
 /* ---------- routing ---------- */
-const pages=['home','menu','small-events','extras','our-work','policy','contact'];
+const pages=['home','menu','small-events','by-piece','extras','our-work','policy','contact'];
 const nav=$('#nav'),burger=$('#burger');
 function route(){const h=location.hash.slice(1);if(h=='reviews'){location.hash='home';return}const p=pages.includes(h)?h:'home';
  pages.forEach(x=>document.getElementById('p-'+x).classList.toggle('on',x==p));
