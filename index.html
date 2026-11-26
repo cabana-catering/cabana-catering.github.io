@@ -635,7 +635,7 @@ const img=(n,alt='')=>`<img src="img/${n}.jpg" alt="${alt}" loading="lazy">`;
 /* ---------- menu ---------- */
 let cat=0,pk=0;
 function drawMenu(scroll){
- const c=CATS[cat],p=c.pk[pk],prev=pk&&!c.box?c.pk[pk-1][3]:null,i=L();
+ const c=CATS[cat],p=c.pk[pk],prev=null,i=L();
  const prevSet=new Set(prev?Object.values(prev).join(' ').split(' '):[]);
  $('#catTabs').innerHTML=CATS.map((x,k)=>`<button role="tab" data-i="${k}" class="${k==cat?'on':''}" aria-selected="${k==cat}">${x.t[i]}</button>`).join('');
  const groups=Object.entries(p[3]).map(([g,v])=>grp(g,Array.isArray(v)?v:v.split(' ').map(k=>S[k]+(prev&&!prevSet.has(k)?'|1':'')))).join('');
@@ -645,7 +645,7 @@ function drawMenu(scroll){
  <div class="pk-layout"><div class="pks">${c.pk.map((x,k)=>`<button class="pk${k==pk?' on':''}" data-k="${k}" aria-pressed="${k==pk}"><img src="img/${x[4][0]}.jpg" alt=""><span class="t"><b>${x[i]}</b>${lang=='ar'?`<small>${x[1]}</small>`:''}</span><span class="pr">${f(x[2])}</span></button>`).join('')}</div>
  <div class="card detail" id="detail"><div class="gal${ims.length==1?' one':''}${c.box?' fit':''}"><div class="main">${img(ims[0],name)}</div>${ims.length>1?`<div class="side">${ims.slice(1).map(m=>img(m,name)).join('')}</div>`:''}</div>
  <div class="in"><div class="dhead"><div>${lang=='ar'?`<span class="lat">${p[1].toUpperCase()}</span>`:''}<h3 style="font-size:26px">${name}</h3><div class="chips"><span class="chip">${n} ${t('items')}</span>${c.min?`<span class="chip hot">${c.min[i]}</span>`:''}${c.box?'':`<span class="chip">${t('noSetup')}</span>`}</div></div><div class="price">${f(p[2])} <small>${c.box?t('perBox'):t('pp')}</small></div></div>
- <div class="groups">${groups}</div>${prev?`<p class="legend">${t('newNote')}</p>`:''}
+ <div class="groups">${groups}</div>
  <div style="margin-top:18px"><a class="btn pri" href="${WA}?text=${encodeURIComponent(t('ask')(name,p[2]))}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>${t('order')}</a></div></div></div></div>`;
  if(scroll&&innerWidth<861)$('#detail').scrollIntoView({behavior:'smooth',block:'start'});
 }
